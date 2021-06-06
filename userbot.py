@@ -18,8 +18,19 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 # import logging
 from pyrogram import Client, idle
 
-app = Client("tgvc")
-# logging.basicConfig(level=logging.INFO)
+api_id = 2552682 
+api_hash = "1d2eae5cf5dbbb0bfe65c7c78bb363c9"
+
+plugins = dict(
+    root="plugins",
+    include=[
+        "vc.player",
+        "ping",
+        "sysinfo"
+    ]
+)
+
+app = Client("tgvc", api_id, api_hash, plugins=plugins)
 app.start()
 print('>>> USERBOT STARTED')
 idle()
